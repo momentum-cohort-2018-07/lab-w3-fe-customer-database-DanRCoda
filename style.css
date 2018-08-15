@@ -1,0 +1,14 @@
+.customer {
+    display: inline-block;
+    width: 250px;
+    line-height: 1rem;
+    margin: 25px;
+}
+
+img {
+    border-radius: 50%;
+}
+
+email {
+    color: lightgray;
+}
