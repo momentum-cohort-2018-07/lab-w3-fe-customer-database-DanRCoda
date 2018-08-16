@@ -1,14 +1,20 @@
 .customer {
     display: inline-block;
     width: 250px;
-    line-height: 1rem;
+    height: 250px;
     margin: 25px;
 }
 
 img {
-    border-radius: 50%;
+    border-radius: 100px;
+    border-bottom-right-radius: 60px;
+    border-top-left-radius: 60px;
 }
 
+/* p {
+    color: rgb(170, 166, 166);
+} */
+
 email {
-    color: lightgray;
+    color: rgb(170, 166, 166);
 }
