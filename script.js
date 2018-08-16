@@ -21,6 +21,72 @@ function capsEachWord (str) {
     return str.join(' ');
 };
 
+function stateToAbbrev (state) {
+    let statesObject = {
+  'Alabama': 'AL',
+  'Alaska': 'AK',
+  'American Samoa': 'AS',
+  'Arizona': 'AZ',
+  'Arkansas': 'AR',
+  'California': 'CA',
+  'Colorado': 'CO',
+  'Connecticut': 'CT',
+  'Delaware': 'DE',
+  'District Of Columbia': 'DC',
+  'Federated States Of Micronesia': 'FM',
+  'Florida': 'FL',
+  'Georgia': 'GA',
+  'Guam': 'GU',
+  'Hawaii': 'HI',
+  'Idaho': 'ID',
+  'Illinois': 'IL',
+  'Indiana': 'IN',
+  'Iowa': 'IA',
+  'Kansas': 'KS',
+  'Kentucky': 'KY',
+  'Louisiana': 'LA',
+  'Maine': 'ME',
+  'Marshall Islands': 'MH',
+  'Maryland': 'MD',
+  'Massachusetts': 'MA',
+  'Michigan': 'MI',
+  'Minnesota': 'MN',
+  'Mississippi': 'MS',
+  'Missouri': 'MO',
+  'Montana': 'MT',
+  'Nebraska': 'NE',
+  'Nevada': 'NV',
+  'New Hampshire': 'NH',
+  'New Jersey': 'NJ',
+  'New Mexico': 'NM',
+  'New York': 'NY',
+  'North Carolina': 'NC',
+  'North Dakota': 'ND',
+  'Northern Mariana Islands': 'MP',
+  'Ohio': 'OH',
+  'Oklahoma': 'OK',
+  'Oregon': 'OR',
+  'Palau': 'PW',
+  'Pennsylvania': 'PA',
+  'Puerto Rico': 'PR',
+  'Rhode Island': 'RI',
+  'South Carolina': 'SC',
+  'South Dakota': 'SD',
+  'Tennessee': 'TN',
+  'Texas': 'TX',
+  'Utah': 'UT',
+  'Vermont': 'VT',
+  'Virgin Islands': 'VI',
+  'Virginia': 'VA',
+  'Washington': 'WA',
+  'West Virginia': 'WV',
+  'Wisconsin': 'WI',
+  'Wyoming': 'WY'
+ }
+    return statesObject[state]
+}
+ 
+
 class Customer {
     constructor(customerInfo) {
         this.info = customerInfo
@@ -38,10 +104,10 @@ class Customer {
     }
 
     getLocation() {
-        // console.log(this.info.location.street)
         return capsEachWord(this.info.location.street) +
         '\n ' +
-        capsEachWord(this.info.location.city) + ', ' + capsEachWord(this.info.location.state) + ' ' + (this.info.location.postcode)
+        capsEachWord(this.info.location.city) + ', ' + 
+        stateToAbbrev(capsEachWord(this.info.location.state)) + ' ' + (this.info.location.postcode)
     }
   
    
@@ -63,7 +129,9 @@ class Customer {
         location.innerText = this.getLocation()
         let dates = document.createElement('p')
         dates.innerText = this.getDates()
-        let header = document.createElement('h1')
+        
+
+        
         
     
         
@@ -84,3 +152,71 @@ for (let customerInfo of customers) {
     let customer = new Customer(customerInfo)
     outputDiv.appendChild(customer.generateDom())
 }
+
+const statesHash =
+ {
+  'Alabama': 'AL',
+  'Alaska': 'AK',
+  'American Samoa': 'AS',
+  'Arizona': 'AZ',
+  'Arkansas': 'AR',
+  'California': 'CA',
+  'Colorado': 'CO',
+  'Connecticut': 'CT',
+  'Delaware': 'DE',
+  'District Of Columbia': 'DC',
+  'Federated States Of Micronesia': 'FM',
+  'Florida': 'FL',
+  'Georgia': 'GA',
+  'Guam': 'GU',
+  'Hawaii': 'HI',
+  'Idaho': 'ID',
+  'Illinois': 'IL',
+  'Indiana': 'IN',
+  'Iowa': 'IA',
+  'Kansas': 'KS',
+  'Kentucky': 'KY',
+  'Louisiana': 'LA',
+  'Maine': 'ME',
+  'Marshall Islands': 'MH',
+  'Maryland': 'MD',
+  'Massachusetts': 'MA',
+  'Michigan': 'MI',
+  'Minnesota': 'MN',
+  'Mississippi': 'MS',
+  'Missouri': 'MO',
+  'Montana': 'MT',
+  'Nebraska': 'NE',
+  'Nevada': 'NV',
+  'New Hampshire': 'NH',
+  'New Jersey': 'NJ',
+  'New Mexico': 'NM',
+  'New York': 'NY',
+  'North Carolina': 'NC',
+  'North Dakota': 'ND',
+  'Northern Mariana Islands': 'MP',
+  'Ohio': 'OH',
+  'Oklahoma': 'OK',
+  'Oregon': 'OR',
+  'Palau': 'PW',
+  'Pennsylvania': 'PA',
+  'Puerto Rico': 'PR',
+  'Rhode Island': 'RI',
+  'South Carolina': 'SC',
+  'South Dakota': 'SD',
+  'Tennessee': 'TN',
+  'Texas': 'TX',
+  'Utah': 'UT',
+  'Vermont': 'VT',
+  'Virgin Islands': 'VI',
+  'Virginia': 'VA',
+  'Washington': 'WA',
+  'West Virginia': 'WV',
+  'Wisconsin': 'WI',
+  'Wyoming': 'WY'
+ }
+
+ var getStateAbbr = function (statesHash) {
+    let stateAbbr = {}
+    return stateAbbr[statesHash];
+  }
