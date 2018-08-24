@@ -1,0 +1,17 @@
+.customer {
+    display: inline-block;
+    width: 250px;
+    height: 250px;
+    margin: 25px;
+}
+
+img {
+    border-radius: 100px;
+    border-bottom-right-radius: 60px;
+    border-top-left-radius: 60px;
+}
+
+/* p {
+    color: rgb(170, 166, 166);
+} */
+
